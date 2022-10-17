@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  # get 'dashboard_seller/index'
+  get 'dashboard_seller', to: 'dashboard_seller#index'
   root 'home#index'
   devise_for :users
 
@@ -7,3 +10,5 @@ Rails.application.routes.draw do
     root 'suppliers#index'
   end
 end
+
+
