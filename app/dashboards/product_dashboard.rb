@@ -9,7 +9,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    category: Field::BelongsTo,
+    category: CategoryField,
     description: Field::String,
     name: Field::String,
     price: Field::String.with_options(searchable: false),
