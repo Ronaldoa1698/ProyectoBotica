@@ -1,6 +1,6 @@
 <div class="field-unit__label">
-  <%= f.label field.attribute %>
+  <%= f.label "Category" %>
 </div>
 <div class="field-unit__field">
-  <%= f.text_field field.attribute %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
 </div>
