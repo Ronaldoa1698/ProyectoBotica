@@ -4,14 +4,8 @@ class DashboardSellerController < ApplicationController
     @products = Product.all
   end
 
-  def show
+  def showProducts
     @product = Product.find(params(:id))
-  end
-
-  def load_cart
-
-    @cart = Product.find()
-
   end
 
 
