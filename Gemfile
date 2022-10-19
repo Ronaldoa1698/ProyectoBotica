@@ -74,3 +74,5 @@ end
 
 gem "administrate"
 gem 'devise'
+
+gem "jsbundling-rails", "~> 1.0"
