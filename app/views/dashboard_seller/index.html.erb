@@ -1,22 +1,3 @@
-<h1>Shopping cart</h1>
-
-<table >
-  <tr>
-    <th>nombre</th>
-    <th>id</th>
-    <th>precio</th>
-    <th></th>
-
-  </tr>
 
 
-<% @products.each do |product|  %>
-  <tr>
-    <td><%= product.name %> </td>
-    <td><%= product.id %></td>
-    <td><%= product.price %></td>
-    <td> <%= button_to "agregar" %> </td>
-  </tr>
-  <% end %>
-</table>
 
