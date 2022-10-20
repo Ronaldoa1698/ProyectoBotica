@@ -9,8 +9,15 @@
 # Create a admin user
 admin_user = User.create(
   email: 'admin@gmail.com',
-  password: 'letmein',
+  password: 'popeyelemarinosoy123',
   role: :admin
 )
 
+saller_user = User.create(
+  email: 'saller@gmail.com',
+  password: 'popeyelemarinosoy123',
+  role: :saller
+)
+
 puts 'Admin user created'
+puts 'Saller user created'
