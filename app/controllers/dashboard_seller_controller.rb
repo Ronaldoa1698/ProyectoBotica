@@ -8,11 +8,17 @@ class DashboardSellerController < ApplicationController
     @product = Product.find(params(:id))
   end
 
-  def load_cart
-
-    @cart = Product.find()
+  def CreateSales
+    @productSale = Product.new(product_params)
+    if(@product = true)
+      @productSale.save
+    end
 
   end
 
+  private
+  def product_params
+      params.require(:product).permit(:name, :price, :quantity)
+  end
 
 end
