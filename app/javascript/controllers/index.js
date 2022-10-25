@@ -7,5 +7,7 @@ import Dropdown from "stimulus-dropdown";
 
 import HelloController from "./hello_controller";
 application.register("hello", HelloController);
+import { Modal } from "tailwindcss-stimulus-components"
+application.register('modal', Modal)
 
 application.register("dropdown", Dropdown);
