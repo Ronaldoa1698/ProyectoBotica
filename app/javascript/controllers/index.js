@@ -4,10 +4,11 @@
 
 import { application } from "./application";
 import Dropdown from "stimulus-dropdown";
-
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
 import { Modal } from "tailwindcss-stimulus-components"
-application.register('modal', Modal)
+import { Alert } from "tailwindcss-stimulus-components"
+import HelloController from "./hello_controller";
 
+application.register('modal', Modal)
+application.register('alert', Alert)
 application.register("dropdown", Dropdown);
+application.register("hello", HelloController);
