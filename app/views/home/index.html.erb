@@ -1,68 +1,8 @@
-<div data-controller="modal" data-modal-allow-background-close="true">
-  <a href="#" data-action="click->modal#open" class=" inline-flex mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
-    <span>Agregar products</span>
-  </a>
 
-  <!-- Modal Container -->
-  <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
-    <!-- Modal Inner Container -->
-    <div class="max-h-screen w-full max-w-4xl relative">
-      <!-- Modal Card -->
-      <div class="m-1 bg-white rounded shadow">
-        <div class="p-8">
-        <table class="border-collapse table-auto w-full text-sm">
-      <thead>
-
-        <tr>
-          <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Nombre</th>
-          <th class="border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Descripcion</th>
-          <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Precio</th>
-        <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Acctions</th>
-        </tr>
-      </thead>
-
-      <thead>
-      <div class="relative">
-        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
-        <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Products..." required="">
-        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-    </div>
-  <br>
-
-      </thead>
-      <tbody class="bg-white dark:bg-slate-800 ">
-        <% @products.each do |product|  %>
-        <tr>
-          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-            <%= product.name %>
-          </td>
-          <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
-          <%= product.description %>
-          </td>
-          <td class="border-b border-slate -100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-          <%= product.price %>
-          </td>
-          <td >
-              <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " > + </button>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-
-    </table>
-          <div class="flex justify-end items-center flex-wrap mt-6">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-action="click->modal#close">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'home/modal_products' %>
 
 
-
+<br>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
