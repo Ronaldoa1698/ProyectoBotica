@@ -14,11 +14,8 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <% if notice || alert %>
+      <%= render "shared/alert", message: notice || alert %>
     <% end %>
 
     <% if user_signed_in? %>
