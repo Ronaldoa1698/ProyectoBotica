@@ -21,6 +21,10 @@ By default, it renders:
   <title>
     <%= content_for(:title) %> - <%= application_title %>
   </title>
+  
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag if defined?(csp_meta_tag) %>
@@ -28,6 +32,8 @@ By default, it renders:
 </head>
 <body>
   <%= render "icons" %>
+
+  <%= render 'shared/navbar' %>
 
   <div class="app-container">
     <%= render "navigation" -%>
