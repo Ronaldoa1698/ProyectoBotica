@@ -6,7 +6,7 @@ export default class extends Controller {
   };
   static targets = ["show_products"];
 
-  mostrar(event) {
+  add(event) {
 
     console.log(event.params);
     let product = {
