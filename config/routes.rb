@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :products
+
   # get 'dashboard_seller/index'
   get 'dashboard_seller', to: 'dashboard_seller#index'
   root 'home#index'

@@ -1,4 +1,5 @@
-class HomeController < ApplicationController
+class ProductsController < ApplicationController
+
   def index
     if params[:query].present?
       @products = Product.where("name LIKE ?", "%#{params[:query]}%")
