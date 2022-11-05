@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :suppliers, :products, :categories
     root 'suppliers#index'
   end
+
+  resource :search, controller: "search"
 end
-
-
