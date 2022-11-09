@@ -4,6 +4,7 @@ import { useState,useEffect } from "react";
 export default function Products() {
 	let [loading, setIsLoading] = useState(true);
 	let [products, setProducts] = useState(null);
+	let [cantidad, setCantidad] = useState(0);	;
 
 		useEffect(() => {
 			setIsLoading(true);
@@ -53,11 +54,16 @@ export default function Products() {
 								</td>
 
 								<td >
-									por completar xd
+									<label>
+										<input 
+										type="number"
+										min={0}
+										/>
+									</label>
 								</td>
 
 								<td >
-									por completar xd
+									por completar el total
 								</td>
 
 
