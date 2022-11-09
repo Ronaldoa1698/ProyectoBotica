@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
-
+  skip_before_action :authenticate_user!
   def index
-    if params[:query].present?
-      @products = Product.where("name LIKE ?", "%#{params[:query]}%")
-    else
-      @products = Product.all
-    end
+    @products = Product.all
+    render json: @products
+  
   end
+
 end
+

@@ -1,12 +1,15 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import Products from "./Products";
+
 
 export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false);
-
+  
   function closeModal() {
     setIsOpen(false);
   }
+  
 
   function openModal() {
     setIsOpen(true);
@@ -25,7 +28,7 @@ export default function MyModal() {
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -35,10 +38,10 @@ export default function MyModal() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black bg-opacity-25 " />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0 overflow-y-auto ">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -57,12 +60,13 @@ export default function MyModal() {
                     Payment successful
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
+                    <p className="text-sm text-gray-500" >
+                      
+                    <Products />
                     </p>
-                  </div>
 
+                  </div>
+                  
                   <div className="mt-4">
                     <button
                       type="button"
