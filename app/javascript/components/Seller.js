@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "./Modal";
 
-
 function Table() {
   return (
     <div className="flex flex-col">
@@ -12,22 +11,7 @@ function Table() {
               <thead className="bg-gray-50">
                 <tr>
                   <th scope="col" className="py-3 pl-4">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="checkbox-all"
-                        type="checkbox"
-                        className="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="checkbox" className="sr-only">
-                        Checkbox
-                      </label>
-                    </div>
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
-                  >
-                    ID
+                    <div className="flex items-center h-5"></div>
                   </th>
                   <th
                     scope="col"
@@ -53,43 +37,29 @@ function Table() {
                   >
                     Subtotal
                   </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                  >
+                    Acciones
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="py-3 pl-4">
-                    <div className="flex items-center h-5">
-                      <input
-                        type="checkbox"
-                        className="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="checkbox" className="sr-only">
-                        Checkbox
-                      </label>
-                    </div>
+                    <div className="flex items-center h-5"></div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                     1
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    Jone Doe
+                    20
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
-                  </td>
-                  
                 </tr>
                 <tr>
                   <td className="py-3 pl-4">
-                    <div className="flex items-center h-5">
-                      <input
-                        type="checkbox"
-                        className="text-blue-600 border-gray-200 rounded focus:ring-blue-500"
-                      />
-                      <label htmlFor="checkbox" className="sr-only">
-                        Checkbox
-                      </label>
-                    </div>
+                    <div className="flex items-center h-5"></div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                     1
@@ -97,10 +67,26 @@ function Table() {
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                  <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                    <div>
+                      <button>
+                        <svg
+                          class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
                   </td>
-                  
                 </tr>
               </tbody>
             </table>
