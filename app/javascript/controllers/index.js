@@ -8,9 +8,12 @@ import { Modal } from "tailwindcss-stimulus-components"
 import { Alert } from "tailwindcss-stimulus-components"
 import HelloController from "./hello_controller";
 import VisibilityController from "./visibility_controller"
+import CartController from "./cart_controller"
+
 
 application.register('modal', Modal)
 application.register('alert', Alert)
 application.register("dropdown", Dropdown);
 application.register("hello", HelloController);
 application.register("visibility", VisibilityController)
+application.register('cart', CartController)
