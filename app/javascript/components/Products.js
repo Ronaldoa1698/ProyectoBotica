@@ -34,21 +34,6 @@ export default function Products({ setCart }) {
     });
   }
 
-  // function filterProducts(data, search) {
-  // 	console.log(search)
-  // 	if(!search){
-  // 		return data;
-  // 	}
-  // 		debugger
-  // 	return data.filter((product) => {
-  // 		return product.name.toLowerCase().includes(search.toLowerCase())
-  // 	})
-  // }
-
-  //   const filteredProducts = products.filter(
-  //     (productFill) => !cart.some((item) => item.id === productFill.id)
-  //   );
-
   return (
     <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
       <header class="px-5 py-4 border-b border-gray-100">
