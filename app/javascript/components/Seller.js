@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 
 function Table({ cart, setCart }) {
-
   const deleteProduct = (id) => {
     const newCart = cart.filter((product) => product.id !== id);
     setCart(newCart);
@@ -20,7 +19,7 @@ function Table({ cart, setCart }) {
   };
 
   return (
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg mx-11 ">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -34,7 +33,7 @@ function Table({ cart, setCart }) {
               Precio
             </th>
             <th scope="col" class="py-3 px-6">
-              Total
+              SubTotal
             </th>
             <th scope="col" class="py-3 px-6">
               Action
@@ -88,6 +87,17 @@ function Table({ cart, setCart }) {
           ))}
         </tbody>
       </table>
+      <div class="mr-[380px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
+        <div>Total</div>
+      </div>
+
+      <div class="flex justify-end ">
+        <input
+          type="hidden"
+          class="border border-black bg-gray-50"
+          x-model="selected"
+        />
+      </div>
     </div>
   );
 }
