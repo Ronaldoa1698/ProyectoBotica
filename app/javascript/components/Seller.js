@@ -18,6 +18,9 @@ function Table({ cart, setCart }) {
     setCart(newCart);
   };
 
+  const subTotal = cart.map((product) => product.price * product.quantity);
+  const total = subTotal.reduce((a, b) => a + b, 0);
+
   return (
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg mx-11 ">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -63,7 +66,7 @@ function Table({ cart, setCart }) {
               </td>
               <td class="py-4 px-6">{cartProduct.price}</td>
               <td class="py-4 px-6">
-                {cartProduct.price * cartProduct.quantity}
+                {(cartProduct.price * cartProduct.quantity).toFixed(2)}
               </td>
               <td class="py-4 px-6">
                 <button onClick={() => deleteProduct(cartProduct.id)}>
@@ -88,7 +91,7 @@ function Table({ cart, setCart }) {
         </tbody>
       </table>
       <div class="mr-[380px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
-        <div>Total</div>
+        <div>Total {total.toFixed(2)}</div>
       </div>
 
       <div class="flex justify-end ">

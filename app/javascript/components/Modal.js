@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Products from "./Products";
 
-export default function MyModal({setCart}) {
+export default function MyModal({ setCart }) {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -15,14 +15,13 @@ export default function MyModal({setCart}) {
 
   return (
     <>
-      <div class = "mx-10 mb-3">
+      <div class="mx-10 mb-3">
         <button
           type="button"
           onClick={openModal}
           class=" rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm 
           font-medium text-white hover:bg-opacity-30 focus:outline-none 
           focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 mt-10"
-          
         >
           Agregar productos
         </button>
@@ -62,9 +61,9 @@ export default function MyModal({setCart}) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      <Products setCart={setCart}/>
+                      <Products setCart={setCart} />
                     </p>
-                  </div>  
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
