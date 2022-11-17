@@ -109,7 +109,7 @@ function Seller() {
   let [cart, setCart] = useState([]);
   return (
     <div>
-      <Modal setCart={setCart} />
+      <Modal cart={cart} setCart={setCart} />
       <Table cart={cart} setCart={setCart} />
     </div>
   );
