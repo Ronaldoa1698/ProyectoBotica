@@ -21,3 +21,34 @@ saller_user = User.create(
 
 puts 'Admin user created'
 puts 'Saller user created'
+
+
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'catalogoproductos.csv'))
+
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+
+csv.each do |row|
+  category = Category.find_or_create_by(name: row['categories'])  
+  t = Product.new
+  t.name = row['Nom_Prod']
+  t.description = row['description_product']
+  t.price = row['Precio']
+  t.category = category
+  if t.save
+    puts t.to_s
+    puts "#{t.name} saved"
+  else
+    puts "#{t.name} not saved"
+    puts t.errors.full_messages
+  end 
+  supplier = Supplier.find_or_create_by(name: row['suppliers'])
+  s = Supplier.new
+  s.name = row ['suppliers']
+end 
+
+
+
+
