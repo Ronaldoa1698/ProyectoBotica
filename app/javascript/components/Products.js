@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function Products({ setCart }) {
+export default function Products({ cart, setCart }) {
   let [loading, setIsLoading] = useState(true);
   let [products, setProducts] = useState(null);
   let [searchProduct, setsearchProduct] = useState("");
@@ -26,12 +26,24 @@ export default function Products({ setCart }) {
   };
 
   let results = products;
+
   if (!searchProduct) {
-    results = products;
-  } else {
     results = products.filter((product) => {
-      return product.name.toLowerCase().includes(searchProduct.toLowerCase());
+      const isRepeated = cart.find((item) => item.id === product.id);
+      if (isRepeated) return false;
+
+      return true;
     });
+  } else {
+    results = products
+      .filter((product) => {
+        return product.name.toLowerCase().includes(searchProduct.toLowerCase());
+      })
+      .filter((product) => {
+        const isRepeated = cart.find((item) => item.id === product.id);
+        if (isRepeated) return false;
+        return true;
+      });
   }
 
   return (
