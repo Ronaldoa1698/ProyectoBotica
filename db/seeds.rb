@@ -28,7 +28,7 @@ require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'catalogoproductos.csv'))
 
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'UTF-8')
 
 csv.each do |row|
   category = Category.find_or_create_by(name: row['categories'])  
