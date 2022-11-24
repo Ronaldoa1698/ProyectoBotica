@@ -23,13 +23,9 @@ puts 'Admin user created'
 puts 'Saller user created'
 
 
-
 require 'csv'
-
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'catalogoproductos.csv'))
-
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'UTF-8')
-
 csv.each do |row|
   category = Category.find_or_create_by(name: row['categories'])  
   t = Product.new
@@ -45,10 +41,4 @@ csv.each do |row|
     puts t.errors.full_messages
   end 
   supplier = Supplier.find_or_create_by(name: row['suppliers'])
-  s = Supplier.new
-  s.name = row ['suppliers']
 end 
-
-
-
-

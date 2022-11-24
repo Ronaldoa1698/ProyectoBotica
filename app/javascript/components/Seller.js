@@ -97,14 +97,6 @@ function Table({ cart, setCart }) {
         <div>Total {total.toFixed(2)}</div>
         <Sale setCart={setCart} cart={cart} total={total.toFixed(2)} />
       </div>
-
-      <div class="flex justify-end ">
-        <input
-          type="hidden"
-          class="border border-black bg-gray-50"
-          x-model="selected"
-        />
-      </div>
       <Client />
     </div>
   );

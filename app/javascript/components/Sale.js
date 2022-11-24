@@ -11,6 +11,10 @@ export default function Sale({ cart, total, setCart }) {
   };
 
   function processSale() {
+    if (cart.length === 0) {
+      toast.error("No hay productos en el carrito");
+      return;
+    }
     const params = {
       method: "POST",
       headers: {
@@ -24,6 +28,9 @@ export default function Sale({ cart, total, setCart }) {
       .then((data) => {
         toast.success("Venta realizada con éxito");
         setCart([]);
+        if (!data) {
+          toast.error("Error al realizar la venta");
+        }
       });
   }
 

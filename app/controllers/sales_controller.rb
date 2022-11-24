@@ -1,18 +1,15 @@
 class SalesController < ApplicationController
-	skip_before_action :verify_authenticity_token
+skip_before_action :verify_authenticity_token
 	def index
 		@sales = Sale.all
 		render json: @sales
 	end
-
+	
 	def create
 		# create a new sale 
-
 		@sale = Sale.create(
 			total: params[:total],
-			description: params[:description]
-		)
-
+			description: params[:description])
 		# create the sale details
 		params[:products].each do |product|
 			SalesDetail.create(
@@ -22,7 +19,6 @@ class SalesController < ApplicationController
 				client_id: 1	
 			)
 		end
-
 		render json: @sale
 	end
 end
