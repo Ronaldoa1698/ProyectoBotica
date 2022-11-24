@@ -28,9 +28,9 @@ export default function Sale({ cart, total, setCart }) {
       .then((data) => {
         toast.success("Venta realizada con éxito");
         setCart([]);
-        if (!data) {
-          toast.error("Error al realizar la venta");
-        }
+      })
+      .catch((error) => {
+        toast.error("Error al realizar la venta");
       });
   }
 
