@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
+import Client from "./client";
 import Modal from "./Modal";
+import Sale from "./Sale";
 
 function Table({ cart, setCart }) {
   const deleteProduct = (id) => {
@@ -90,8 +93,9 @@ function Table({ cart, setCart }) {
           ))}
         </tbody>
       </table>
-      <div class="mr-[380px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
+      <div class="mr-[150px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
         <div>Total {total.toFixed(2)}</div>
+        <Sale setCart={setCart} cart={cart} total={total.toFixed(2)} />
       </div>
 
       <div class="flex justify-end ">
@@ -101,6 +105,7 @@ function Table({ cart, setCart }) {
           x-model="selected"
         />
       </div>
+      <Client />
     </div>
   );
 }
@@ -109,6 +114,9 @@ function Seller() {
   let [cart, setCart] = useState([]);
   return (
     <div>
+      <div>
+        <Toaster position="botom-right" reverseOrder={false} />
+      </div>
       <Modal cart={cart} setCart={setCart} />
       <Table cart={cart} setCart={setCart} />
     </div>
