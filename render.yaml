@@ -1,11 +1,11 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: appBotica
+    databaseName: appBotica
+    user: appBotica
 
 services:
   - type: web
-    name: mysite
+    name: Botica-app 
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
@@ -14,5 +14,5 @@ services:
         fromDatabase:
           name: mysite
           property: connectionString
-      - key: ronaldoBotica_KEY
+      - key: RAILS_MASTER_KEY
         sync: false
