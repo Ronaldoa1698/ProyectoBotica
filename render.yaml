@@ -1,5 +1,5 @@
 databases:
-  - name: appBotica
+  - name: postgres
     databaseName: appBotica
     user: ronaldo
 
