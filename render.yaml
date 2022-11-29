@@ -1,7 +1,7 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: appBotica
+    databaseName: myBotica
+    user: mysiteBotica
 
 services:
   - type: web
