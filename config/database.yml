@@ -24,6 +24,7 @@ default: &default
 development:
   <<: *default
   database: appBotica_development
+  url: postgres://ronaldo_andre:Mv7FZtLEahz1xinSavpw2JWAqhec7CYR@dpg-ce34frcgqg43k3j51aig-a.oregon-postgres.render.com/postgre_dczm
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
