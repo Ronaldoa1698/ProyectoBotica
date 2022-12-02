@@ -3,10 +3,13 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application";
+import Dropdown from "stimulus-dropdown"
 import { Alert } from "tailwindcss-stimulus-components"
+import HelloController from "./hello_controller";
 import VisibilityController from "./visibility_controller"
 
 
-
 application.register('alert', Alert)
+application.register("dropdown", Dropdown);
+application.register("hello", HelloController);
 application.register("visibility", VisibilityController)
