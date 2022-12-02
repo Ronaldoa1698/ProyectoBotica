@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: appBotica_production
   username: appBotica
   password: <%= ENV["APPBOTICA_DATABASE_PASSWORD"] %>
