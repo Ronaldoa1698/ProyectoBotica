@@ -1,9 +1,15 @@
 import React from "react";
 
 export default function Client() {
+
+  const [nameCliente, setNameCliente] = React.useState("");
+  const handleNameCliente = (e) => {
+    setNameCliente(e.target.value);
+  }
+
   return (
     <>
-      <div class="mb-6">
+      <div class="ml-2 mb-8">
         <label
           for="default-input"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -14,6 +20,8 @@ export default function Client() {
           type="text"
           class="bg-gray-50 border border-gray-300 text-gray-900 w-80 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Nombre del cliente"
+          value={nameCliente}
+          onChange={handleNameCliente}
         />
       </div>
     </>

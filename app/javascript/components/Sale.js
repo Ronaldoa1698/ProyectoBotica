@@ -1,13 +1,15 @@
 import React from "react";
 import toast from "react-hot-toast";
 
-export default function Sale({ cart, total, setCart }) {
+export default function Sale({ cart, total, setCart, client }) {
   console.log(cart);
+  console.log("cliente",client);
+  console.log("estoy aca")
 
   const saleParams = {
     total: total,
-    description: "Venta de productos", // TODO: remove this when delete these field
     products: cart,
+    client: client,
   };
 
   function processSale() {
