@@ -9,7 +9,10 @@ skip_before_action :verify_authenticity_token
 		# create a new sale 
 		@sale = Sale.create(
 			total: params[:total], 
-			cliente: params[:cliente])
+			client.create(
+				name: params[:client][:name]
+			)
+		)
 		# create the sale details
 		params[:products].each do |product|
 			SalesDetail.create(
