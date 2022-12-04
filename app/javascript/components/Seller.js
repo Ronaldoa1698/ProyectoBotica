@@ -92,12 +92,13 @@ function Table({ cart, setCart, client }) {
             </tr>
           ))}
         </tbody>
+        <Client />
       </table>
       <div class="mr-[150px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
         <div>Total {total.toFixed(2)}</div>
-        <Sale setCart={setCart} cart={cart} total={total.toFixed(2)} client = {client} />
+        <Sale setCart={setCart} cart={cart} total={total.toFixed(2)}/>
       </div>
-      <Client />
+      
     </div>
   );
 }
@@ -110,7 +111,7 @@ function Seller() {
         <Toaster position="botom-right" reverseOrder={false} />
       </div>
       <Modal cart={cart} setCart={setCart} />
-      <Table cart={cart} setCart={setCart} />
+      <Table cart={cart} setCart={setCart}/>
     </div>
   );
 }

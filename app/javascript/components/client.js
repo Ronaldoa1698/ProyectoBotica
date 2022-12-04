@@ -5,6 +5,7 @@ export default function Client() {
   const [nameCliente, setNameCliente] = React.useState("");
   const handleNameCliente = (e) => {
     setNameCliente(e.target.value);
+    console.log(e.target.value);
   }
 
   return (

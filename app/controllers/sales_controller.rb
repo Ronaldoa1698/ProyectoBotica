@@ -19,7 +19,7 @@ skip_before_action :verify_authenticity_token
 				quantity: product[:quantity],
 				sale_id: @sale.id,
 				product_id: product[:id],
-				client_id: 1	
+				client_id: @sale.client_id
 			)
 		end
 		render json: @sale
