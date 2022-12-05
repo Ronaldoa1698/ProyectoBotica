@@ -47,7 +47,7 @@ export default function Client({ setClientId }) {
   return (
     <div className="relative flex items-center z-10">
       <div className="text-gray-700 mr-2">Cliente:</div>
-      <Combobox value={selected} onChange={setSelected} nullable>
+      <Combobox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
@@ -57,12 +57,14 @@ export default function Client({ setClientId }) {
               placeholder="Buscar cliente"
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <button onClick={handleClear}>
-                <XMarkIcon
-                  className="h-5 w-5 text-gray-400 hover:text-gray-600"
-                  aria-hidden="true"
-                />
-              </button>
+              {(query || selected) && (
+                <button onClick={handleClear}>
+                  <XMarkIcon
+                    className="h-5 w-5 text-gray-400 hover:text-gray-600"
+                    aria-hidden="true"
+                  />
+                </button>
+              )}
               <Combobox.Button className="flex items-center">
                 <ChevronUpDownIcon
                   className="h-5 w-5 text-gray-400"
