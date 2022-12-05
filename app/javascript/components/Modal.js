@@ -18,13 +18,13 @@ export default function MyModal({ cart, setCart }) {
       <button
         type="button"
         onClick={openModal}
-        class="px-4 py-2 bg-green-500 outline-none rounded text-white shadow-green-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-green-600 focus:bg-green-600 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200"
+        className="px-4 py-2 bg-green-500 outline-none rounded text-white shadow-green-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-green-600 focus:bg-green-600 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200"
       >
         Agregar productos
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" class="relative z-10 " onClose={closeModal}>
+        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -34,11 +34,11 @@ export default function MyModal({ cart, setCart }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div class="fixed inset-0 bg-black bg-opacity-25 " />
+            <div className="fixed inset-0 bg-black bg-opacity-25 " />
           </Transition.Child>
 
-          <div class="fixed inset-0 overflow-y-auto ">
-            <div class="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="fixed inset-0 overflow-y-auto ">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -48,15 +48,15 @@ export default function MyModal({ cart, setCart }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel class="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    class="text-lg font-medium leading-6 text-gray-900"
+                    className="text-lg font-medium leading-6 text-gray-900"
                   >
                     Seleccionar producto
                   </Dialog.Title>
-                  <div class="mt-2">
-                    <p class="text-sm text-gray-500">
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
                       <Products cart={cart} setCart={setCart} />
                     </p>
                   </div>

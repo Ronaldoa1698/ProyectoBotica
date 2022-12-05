@@ -47,38 +47,38 @@ export default function Products({ cart, setCart }) {
   }
 
   return (
-    <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-      <header class="px-5 py-4 border-b border-gray-100">
-        <div class="font-semibold text-gray-800">Productos</div>
+    <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+      <header className="px-5 py-4 border-b border-gray-100">
+        <div className="font-semibold text-gray-800">Productos</div>
       </header>
-      <div class="overflow-x-auto p-3">
+      <div className="overflow-x-auto p-3">
         <input
           type="text"
           placeholder="Search"
           value={searchProduct}
           onChange={searcher}
-          class="border border-gray-300 rounded-lg px-3 py-2 w-full"
+          className="border border-gray-300 rounded-lg px-3 py-2 w-full"
         />
-        <table class="table-auto w-full table-hover">
-          <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+        <table className="table-auto w-full table-hover">
+          <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
             <tr>
-              <th class="p-2">
-                <div class="font-semibold text-left">Product Name</div>
+              <th className="p-2">
+                <div className="font-semibold text-left">Product Name</div>
               </th>
-              <th class="p-2">
-                <div class="font-semibold text-left">Price</div>
+              <th className="p-2">
+                <div className="font-semibold text-left">Price</div>
               </th>
-              <th class="p-2">
-                <div class="font-semibold text-center">Action</div>
+              <th className="p-2">
+                <div className="font-semibold text-center">Action</div>
               </th>
             </tr>
           </thead>
-          <tbody class="text-sm divide-y divide-gray-100">
+          <tbody className="text-sm divide-y divide-gray-100">
             {results.map((product) => (
               <tr>
-                <td class="p-2">{product.name}</td>
-                <td class="p-2">{product.price}</td>
-                <td class="p-2 flex justify-center">
+                <td className="p-2">{product.name}</td>
+                <td className="p-2">{product.price}</td>
+                <td className="p-2 flex justify-center">
                   <button
                     onClick={() =>
                       setCart((prevCart) => [
@@ -97,7 +97,7 @@ export default function Products({ cart, setCart }) {
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="feather feather-plus"
+                      className="feather feather-plus"
                     >
                       <line x1="12" y1="5" x2="12" y2="19"></line>
                       <line x1="5" y1="12" x2="19" y2="12"></line>

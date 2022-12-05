@@ -28,8 +28,8 @@ export default function Example() {
         );
 
   return (
-    <div class="relative flex items-center z-10">
-      <div class="text-gray-700 mr-2">Cliente:</div>
+    <div className="relative flex items-center z-10">
+      <div className="text-gray-700 mr-2">Cliente:</div>
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -58,7 +58,7 @@ export default function Example() {
                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                   <button
                     onClick={() => setIsOpen(true)}
-                    class="px-2 -mx-2 py-1 transition duration-200 ease-in-out relative block text-teal-600 hover:text-teal-800 font-medium"
+                    className="px-2 -mx-2 py-1 transition duration-200 ease-in-out relative block text-teal-600 hover:text-teal-800 font-medium"
                   >
                     Agregar cliente
                   </button>

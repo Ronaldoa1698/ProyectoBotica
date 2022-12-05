@@ -25,56 +25,56 @@ function Table({ cart, setCart, client }) {
   const total = subTotal.reduce((a, b) => a + b, 0);
 
   return (
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" className="py-3 px-6">
               Nombre del producto
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" className="py-3 px-6">
               Cantidad
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" className="py-3 px-6">
               Precio
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" className="py-3 px-6">
               SubTotal
             </th>
-            <th scope="col" class="py-3 px-6">
+            <th scope="col" className="py-3 px-6">
               Action
             </th>
           </tr>
         </thead>
         <tbody>
           {cart.map((cartProduct) => (
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th
                 scope="row"
-                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {cartProduct.name}
               </th>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">
                 <input
                   type="number"
                   min="0"
                   placeholder="Cantidad"
-                  class="border border-gray-300 rounded-lg px-3 py-2"
+                  className="border border-gray-300 rounded-lg px-3 py-2"
                   value={cartProduct.quantity}
                   onChange={(e) =>
                     changeQuantity(cartProduct.id, e.target.value)
                   }
                 />
               </td>
-              <td class="py-4 px-6">{cartProduct.price}</td>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">{cartProduct.price}</td>
+              <td className="py-4 px-6">
                 {(cartProduct.price * cartProduct.quantity).toFixed(2)}
               </td>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">
                 <button onClick={() => deleteProduct(cartProduct.id)}>
                   <svg
-                    class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
+                    className="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ function Table({ cart, setCart, client }) {
           </tr>
         </tfoot>
       </table>
-      {/* <div class="mr-[70px] flex justify-end font-bold space-x-4 text-xl border-t border-gray-100 px-5 py-4"></div> */}
+      {/* <div className="mr-[70px] flex justify-end font-bold space-x-4 text-xl border-t border-gray-100 px-5 py-4"></div> */}
     </div>
   );
 }
@@ -124,7 +124,7 @@ function Table({ cart, setCart, client }) {
 function Seller() {
   let [cart, setCart] = useState([]);
   return (
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div>
         <Toaster position="botom-right" reverseOrder={false} />
       </div>
