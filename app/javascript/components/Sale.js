@@ -3,16 +3,13 @@ import toast from "react-hot-toast";
 
 export default function Sale({ cart, total, setCart, client }) {
   console.log(cart);
-<<<<<<< HEAD
   const [nameCliente, setNameCliente] = React.useState("");
 
   const handleNameCliente = (e) => {
     setNameCliente(e.target.value);
-  }
-=======
+  };
   console.log("cliente", client);
   console.log("estoy aca");
->>>>>>> 38757da (add some ui fixes)
 
   const saleParams = {
     total: total,
@@ -45,7 +42,7 @@ export default function Sale({ cart, total, setCart, client }) {
   }
 
   return (
-    <div class='text-base'>
+    <div class="text-base">
       <button
         disabled={cart.length === 0}
         onClick={processSale}

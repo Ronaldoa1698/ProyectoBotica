@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import Client from "./client";
+import Client from "./Client";
 import Modal from "./Modal";
 import Sale from "./Sale";
 
