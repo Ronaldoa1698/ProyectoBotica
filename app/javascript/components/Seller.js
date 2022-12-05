@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import Client from "./Client";
+import Client from "./client";
 import Modal from "./Modal";
 import Sale from "./Sale";
 
-function Table({ cart, setCart, client }) {
+function Table({ cart, setCart, clientId }) {
   const deleteProduct = (id) => {
     const newCart = cart.filter((product) => product.id !== id);
     setCart(newCart);
@@ -110,7 +110,7 @@ function Table({ cart, setCart, client }) {
                 setCart={setCart}
                 cart={cart}
                 total={total.toFixed(2)}
-                client={client}
+                clientId={clientId}
               />
             </td>
           </tr>
@@ -123,16 +123,18 @@ function Table({ cart, setCart, client }) {
 
 function Seller() {
   let [cart, setCart] = useState([]);
+  let [clientId, setClientId] = useState(null);
+
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div>
         <Toaster position="botom-right" reverseOrder={false} />
       </div>
       <div className="flex justify-between items-center my-10">
-        <Client />
+        <Client setClientId={setClientId} />
         <Modal cart={cart} setCart={setCart} />
       </div>
-      <Table cart={cart} setCart={setCart} />
+      <Table cart={cart} setCart={setCart} clientId={clientId} />
     </div>
   );
 }

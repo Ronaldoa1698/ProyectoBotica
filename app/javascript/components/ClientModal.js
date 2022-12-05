@@ -1,21 +1,47 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import toast from "react-hot-toast";
 
-export default function ClientModal({ isOpen, setIsOpen }) {
+export default function ClientModal({
+  isOpen,
+  setIsOpen,
+  setSelected,
+  setClients,
+}) {
   function closeModal() {
     setIsOpen(false);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const elements = event.target.elements;
-    const data = {
+    const client = {
       name: elements["name"].value,
       address: elements["address"].value,
       telephone: elements["telephone"].value,
     };
 
-    console.log(data);
+    try {
+      const response = await fetch("/clients.json", {
+        method: "POST",
+        body: JSON.stringify({ client }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      const newClient = { id: data.id, name: data.name };
+      setClients((clients) => [...clients, newClient]);
+      setSelected(newClient);
+
+      toast.success("Cliente creado con éxito");
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Error al crear el cliente");
+    } finally {
+      closeModal();
+    }
   }
 
   return (

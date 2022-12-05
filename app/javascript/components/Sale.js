@@ -1,20 +1,11 @@
 import React from "react";
 import toast from "react-hot-toast";
 
-export default function Sale({ cart, total, setCart, client }) {
-  console.log(cart);
-  const [nameCliente, setNameCliente] = React.useState("");
-
-  const handleNameCliente = (e) => {
-    setNameCliente(e.target.value);
-  };
-  console.log("cliente", client);
-  console.log("estoy aca");
-
+export default function Sale({ cart, total, setCart, clientId }) {
   const saleParams = {
     total: total,
     products: cart,
-    client: client,
+    client_id: clientId,
   };
 
   function processSale() {
