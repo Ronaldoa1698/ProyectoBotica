@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Products from "./Products";
 
-export default function MyModal({ cart,setCart }) {
+export default function MyModal({ cart, setCart }) {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -15,17 +15,13 @@ export default function MyModal({ cart,setCart }) {
 
   return (
     <>
-      <div class="mx-10 mb-3">
-        <button
-          type="button"
-          onClick={openModal}
-          class=" rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm 
-          font-medium text-white hover:bg-opacity-30 focus:outline-none 
-          focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 mt-10"
-        >
-          Agregar productos
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={openModal}
+        class="px-4 py-2 bg-green-500 outline-none rounded text-white shadow-green-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-green-600 focus:bg-green-600 focus:ring-2 focus:ring-green-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200"
+      >
+        Agregar productos
+      </button>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" class="relative z-10 " onClose={closeModal}>

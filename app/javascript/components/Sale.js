@@ -3,11 +3,16 @@ import toast from "react-hot-toast";
 
 export default function Sale({ cart, total, setCart, client }) {
   console.log(cart);
+<<<<<<< HEAD
   const [nameCliente, setNameCliente] = React.useState("");
 
   const handleNameCliente = (e) => {
     setNameCliente(e.target.value);
   }
+=======
+  console.log("cliente", client);
+  console.log("estoy aca");
+>>>>>>> 38757da (add some ui fixes)
 
   const saleParams = {
     total: total,
@@ -40,13 +45,14 @@ export default function Sale({ cart, total, setCart, client }) {
   }
 
   return (
-    <div>
+    <div class='text-base'>
       <button
+        disabled={cart.length === 0}
         onClick={processSale}
         type="button"
-        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        class="px-4 py-2 bg-indigo-500 outline-none rounded text-white shadow-indigo-200 shadow-lg font-medium active:shadow-none active:scale-95 hover:bg-indigo-600 focus:bg-indigo-600 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200"
       >
-        Pagar
+        Procesar pago
       </button>
     </div>
   );

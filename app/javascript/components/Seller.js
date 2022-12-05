@@ -25,7 +25,7 @@ function Table({ cart, setCart, client }) {
   const total = subTotal.reduce((a, b) => a + b, 0);
 
   return (
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg mx-11 ">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -92,13 +92,31 @@ function Table({ cart, setCart, client }) {
             </tr>
           ))}
         </tbody>
-        <Client />
+        <tfoot>
+          <tr>
+            <td colSpan={3}></td>
+            <td className="px-6 py-4 uppercase">
+              Total:{" "}
+              <span
+                className={`font-bold text-base ${
+                  cart.length > 0 ? "text-black" : ""
+                }`}
+              >
+                {total.toFixed(2)}
+              </span>
+            </td>
+            <td className="py-4">
+              <Sale
+                setCart={setCart}
+                cart={cart}
+                total={total.toFixed(2)}
+                client={client}
+              />
+            </td>
+          </tr>
+        </tfoot>
       </table>
-      <div class="mr-[150px] flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
-        <div>Total {total.toFixed(2)}</div>
-        <Sale setCart={setCart} cart={cart} total={total.toFixed(2)}/>
-      </div>
-      
+      {/* <div class="mr-[70px] flex justify-end font-bold space-x-4 text-xl border-t border-gray-100 px-5 py-4"></div> */}
     </div>
   );
 }
@@ -106,12 +124,15 @@ function Table({ cart, setCart, client }) {
 function Seller() {
   let [cart, setCart] = useState([]);
   return (
-    <div>
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div>
         <Toaster position="botom-right" reverseOrder={false} />
       </div>
-      <Modal cart={cart} setCart={setCart} />
-      <Table cart={cart} setCart={setCart}/>
+      <div className="flex justify-between items-center my-10">
+        <Client />
+        <Modal cart={cart} setCart={setCart} />
+      </div>
+      <Table cart={cart} setCart={setCart} />
     </div>
   );
 }

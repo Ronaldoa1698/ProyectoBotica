@@ -10,7 +10,7 @@ export default function Client() {
 
   return (
     <>
-      <div class="ml-2 mb-8">
+      <div class="">
         <label
           for="default-input"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
