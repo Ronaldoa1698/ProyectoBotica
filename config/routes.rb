@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :clients
 
   resources :products
   resources :sales, only: [:create]
- 
+
   # get 'dashboard_seller/index'
   get 'dashboard_seller', to: 'dashboard_seller#index'
   root 'home#index'

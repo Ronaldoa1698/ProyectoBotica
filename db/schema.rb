@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_214203) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_212839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -180,16 +180,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_214203) do
     t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "client_id"
   end
 
   create_table "sales_details", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "sale_id", null: false
     t.bigint "product_id", null: false
-    t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_sales_details_on_client_id"
     t.index ["product_id"], name: "index_sales_details_on_product_id"
     t.index ["sale_id"], name: "index_sales_details_on_sale_id"
   end
@@ -219,7 +218,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_214203) do
   add_foreign_key "motor_alerts", "motor_queries", column: "query_id"
   add_foreign_key "motor_taggable_tags", "motor_tags", column: "tag_id"
   add_foreign_key "products", "categories"
-  add_foreign_key "sales_details", "clients"
   add_foreign_key "sales_details", "products"
   add_foreign_key "sales_details", "sales"
 end
