@@ -1,4 +1,5 @@
 class SalesController < ApplicationController
+  skip_before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
   def index
@@ -7,12 +8,17 @@ class SalesController < ApplicationController
   end
 
   def create
+    if params[:products].empty?
+      render json: { error: "No products" }, status: :unprocessable_entity and return
+    end 
+
     @sale = Sale.create(
       total: params[:total],
       client_id: params[:client_id],
     )
 
     # create the sale details
+  
     params[:products].each do |product|
       SalesDetail.create(
         quantity: product[:quantity],
