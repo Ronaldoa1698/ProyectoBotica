@@ -29,4 +29,21 @@ class SalesController < ApplicationController
 
     render json: @sale
 	end
+
+  def download_pdf
+    @sale = Sale.find(params[:id])
+    pdf = Prawn::Document.new
+    pdf.text "Factura Nro: #{params[:id]}"
+    pdf.text "Fecha: #{Time.now.strftime("%d/%m/%Y")}"
+    pdf.text "Cliente: #{Client.find(@sale.client_id).name}"
+    pdf.text "Total: #{params[:total]}"
+    pdf.text "Productos: " 
+    params[:products].each do |product|
+      pdf.text "#{product[:name]} - #{product[:quantity]}"
+    end
+    send_data(pdf.render, filename: "factura.pdf", 
+    type: "application/pdf", 
+    disposition: "inline")
+  end
+
 end
