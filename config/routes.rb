@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :clients
   resources :products 
 
-  resources :sales, only: [:create] 
+
+  get 'download_prueba', to: 'sales#download_prueba'
+  resources :sales 
   get 'sales/download/:id', to: 'sales#download', as: 'download'
 
   # get 'dashboard_seller/index'
