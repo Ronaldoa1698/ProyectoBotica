@@ -77,3 +77,5 @@ gem "administrate"
 gem 'devise'
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "prawn", "~> 2.4"
