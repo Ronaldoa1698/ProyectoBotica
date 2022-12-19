@@ -9,11 +9,11 @@ class ProductDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    category: CategoryField,
+    category: Field::BelongsTo,
     description: Field::String,
     name: Field::String,
     price: Field::String.with_options(searchable: false),
-    quantity: Field::Number,
+    stock: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -38,7 +38,7 @@ class ProductDashboard < Administrate::BaseDashboard
     description
     name
     price
-    quantity
+    stock
     created_at
     updated_at
   ].freeze
@@ -51,7 +51,7 @@ class ProductDashboard < Administrate::BaseDashboard
     description
     name
     price
-    quantity
+    stock
   ].freeze
 
   # COLLECTION_FILTERS
