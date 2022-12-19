@@ -39,13 +39,9 @@ class SalesController < ApplicationController
     end
   end
 
-
   #metodo para descargar pdf de la factura de la venta mediante el id de la venta 
-  
   def download_pdf
-    
     @sale = Sale.includes(:sales_details).find(params[:id])
-    
     if @sale.nil?
       render json: { error: "Sale not found" }, status: :unprocessable_entity and return
     else
@@ -66,8 +62,5 @@ class SalesController < ApplicationController
     pdf = Prawn::Document.new
     pdf.text "Hello World"
     send_data(pdf.render, filename: "hello.pdf", type: "application/pdf")
-  
   end
-
-
 end
