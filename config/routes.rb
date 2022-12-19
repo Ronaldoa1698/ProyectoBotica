@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
 
   get 'download_prueba', to: 'sales#download_prueba'
+  get 'download_pdf/:id', to: 'sales#download_pdf'
+  get 'showSaleDetails/:id', to: 'sales#showSaleDetails'
   resources :sales 
-  get 'sales/download/:id', to: 'sales#download', as: 'download'
-
   # get 'dashboard_seller/index'
   get 'dashboard_seller', to: 'dashboard_seller#index'
   root 'home#index'
