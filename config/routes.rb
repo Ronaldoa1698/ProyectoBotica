@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :products 
 
 
-  get 'download_prueba', to: 'sales#download_prueba'
+ 
+  get 'download_prueba/:id', to: 'sales#download_prueba'
   get 'download_pdf/:id', to: 'sales#download_pdf'
   get 'showSaleDetails/:id', to: 'sales#showSaleDetails'
   resources :sales 

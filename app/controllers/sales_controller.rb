@@ -2,6 +2,7 @@ class SalesController < ApplicationController
   skip_before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
+
   def index
     @sales = Sale.all
     render json: @sales
@@ -46,7 +47,7 @@ class SalesController < ApplicationController
       render json: { error: "Sale not found" }, status: :unprocessable_entity and return
     else
       pdf = Prawn::Document.new
-      pdf.text "Factura de venta"
+      pdf.text "Factura de venta", size: 20, style: :bold, align: :center, color: "FF0000",underline: true,leading: 10, character_spacing: 5
       pdf.text "Cliente: " + @sale.client.name
       pdf.text "Fecha: " + @sale.created_at.to_s
       pdf.text "Productos: "
@@ -58,9 +59,15 @@ class SalesController < ApplicationController
     end
   end
 
+  #metodo para descargar pdf de prueba
   def download_prueba
-    pdf = Prawn::Document.new
-    pdf.text "Hello World"
-    send_data(pdf.render, filename: "hello.pdf", type: "application/pdf")
+    @sale = Sale.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = SalePdf.new(@sale)
+        send_data pdf.render, filename: 'prueba.pdf', type: 'application/pdf', disposition: "inline"
+        end
+    end
   end
 end
