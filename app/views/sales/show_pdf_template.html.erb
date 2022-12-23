@@ -1,0 +1,32 @@
+
+<h1>Factura #<%= @sale.id %></h1>
+<div>
+    <h2>Cliente</h2>
+    <p><%= @sale.client.name %></p>
+</div>
+<div>
+<h2>Detalles de la venta
+    <p>Fecha: <%= @sale.created_at %></p>
+</h2>
+    <h2>Productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= Sale.all.includes(:sales_details) %>
+            <% @sale.sales_details.each do |sale_detail| %>
+                <tr>
+                    <td><%= sale_detail.product.name %></td>
+                    <td><%= sale_detail.product.price %></td>
+                    <td><%= sale_detail.quantity %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <p>Total: <%= @sale.total %></p>
+</div>

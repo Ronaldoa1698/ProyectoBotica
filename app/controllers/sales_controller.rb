@@ -63,4 +63,34 @@ class SalesController < ApplicationController
     pdf.text "Hello World"
     send_data(pdf.render, filename: "hello.pdf", type: "application/pdf")
   end
+
+
+  def download_pdf_pdfkit
+    @sale = Sale.includes(sales_details: :product).find(params[:id])
+    if @sale.nil?
+      render json: { error: "Sale not found" }, status: :unprocessable_entity and return
+    else
+      html_sale = "<p>Factura de venta</p>"
+      html_sale += "<p>Cliente: " + @sale.client.name + "</p>"
+      html_sale += "<p>Fecha: " + @sale.created_at.to_s + "</p>"
+      html_sale += "<p>Productos: </p>"
+      @sale.sales_details.each do |sale_detail|
+        html_sale += "<p>Producto: " + sale_detail.product.name + " Cantidad: " + sale_detail.quantity.to_s + "</p>"
+      end
+      html_sale += "<p>Total: " + @sale.total.to_s + "</p>"
+      kit = PDFKit.new(html_sale, :page_size => 'Letter')
+      send_data(kit.to_pdf, :filename => 'factura.pdf', :type => 'application/pdf')
+   end
+  end
+
+  def show_pdf_template
+    @sale = Sale.includes(sales_details: :product).find(params[:id])
+    if @sale.nil?
+      render json: { error: "Sale not found" }, status: :unprocessable_entity and return
+    else
+      html = render_to_string(template: "sales/show_pdf_template", layout: false, locals: { sale: @sale }, formats: [:html])
+      kit = PDFKit.new(html, :page_size => 'Letter')
+      send_data(kit.to_pdf, :filename => 'factura.pdf', :type => 'application/pdf')
+    end
+  end
 end
