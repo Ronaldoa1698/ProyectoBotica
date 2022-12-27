@@ -2,27 +2,23 @@
 <html>
   <head>
     <title>AppBotica</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
 
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track":
+    "reload" %> <%= javascript_include_tag "application", "data-turbo-track":
+    "reload", defer: true %>
   </head>
 
   <body>
-    <% if notice || alert %>
-      <%= render "shared/alert", message: notice || alert %>
-    <% end %>
+    <% if notice || alert %> <%= render "shared/alert", message: notice || alert
+    %> <% end %> <% if user_signed_in? %> <%= render 'shared/navbar' %> <% end
+    %>
 
-    <% if user_signed_in? %>
-      <%= render 'shared/navbar' %>
-    <% end %>
+    <script src="/node_modules/TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
     <%= yield %>
   </body>
 </html>
