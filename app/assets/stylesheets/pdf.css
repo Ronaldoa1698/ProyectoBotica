@@ -1,0 +1,12 @@
+div.page {
+    width: 180mm;
+    height: 277mm;
+    overflow: hidden;
+    page-break-before: always;
+    page-break-after: always;
+    page-break-inside: avoid;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgb(255, 255, 255);
+  }
