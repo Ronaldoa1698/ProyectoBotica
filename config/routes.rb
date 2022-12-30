@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :products 
   
-
-  get 'show_pdf_template/:id', to: 'sales#show_pdf_template'
-  get 'showSaleDetails/:id', to: 'sales#showSaleDetails'
+  get 'show_pdf_template/:id', to: 'sales#show_pdf_template', as: 'show_pdf_template'
   resources :sales 
   # get 'dashboard_seller/index'
   get 'dashboard_seller', to: 'dashboard_seller#index'
