@@ -46,9 +46,14 @@ class SalesController < ApplicationController
     if @sale.nil?
       render json: { error: "Sale not found" }, status: :unprocessable_entity and return
     else
-      html = render_to_string(template: "sales/show_pdf_template", layout: false, locals: { sale: @sale }, formats: [:html])
-      kit = PDFKit.new(html, :page_size => 'Letter')
-      send_data(kit.to_pdf, :filename => 'factura.pdf', :type => 'application/pdf')
+      respond_to do |format|
+        format.html
+        format.pdf do
+          html = render_to_string(template: "sales/show_pdf_template", layout: false, locals: { sale: @sale }, formats: [:html])      
+          kit = PDFKit.new(html, page_size: 'Letter',css: "#{Rails.root}/app/assets/stylesheets/sales.css")
+          send_data(kit.to_pdf, filename: "invoice.pdf", type: 'application/pdf', disposition: 'inline')
+        end
+      end
     end
   end
 end
